@@ -80,7 +80,7 @@ func GetPost(latitude, longitude float64) ([]ResponseGet, error) {
 	}
 	defer db.Close()
 
-	cmd := "SELECT postId,displayName,content,imageURL,userWhere,latitude,longitude,address,constructionName,roadName FROM posts WHERE latitude BETWEEN ? - 0.6 AND ? + 0.6 AND longitude BETWEEN ? - 0.6 AND ? + 0.6"
+	cmd := "SELECT postId,displayName,content,imageURL,userWhere,latitude,longitude,address,constructionName,roadName FROM posts WHERE latitude BETWEEN ? - 0.4 AND ? + 0.4 AND longitude BETWEEN ? - 0.4 AND ? + 0.4"
 	row, err := db.Query(cmd, latitude, latitude, longitude, longitude)
 	if err != nil {
 		return nil, err
